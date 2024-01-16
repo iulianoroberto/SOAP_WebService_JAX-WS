@@ -11,4 +11,4 @@ The Java interface is the following:
 - List<Organization> getRegisteredOrganizations();
 - void pay(String cctype, String ccnumber, String code, Double amount, int destination);
   
-* Bottom-up approach (the WSDL description is created starting from the Java interface).
+\* Bottom-up approach (the WSDL description is created starting from the Java interface).
