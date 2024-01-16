@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PaymentServiceImplService" targetNamespace="http://assd.unisannio.it/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://assd.unisannio.it/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://assd.unisannio.it/" version="1.0" xmlns:tns="http://assd.unisannio.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getRegisteredOrganizations" type="tns:getRegisteredOrganizations"/>
+
+  <xs:element name="getRegisteredOrganizationsResponse" type="tns:getRegisteredOrganizationsResponse"/>
+
+  <xs:element name="getSupportedCreditCards" type="tns:getSupportedCreditCards"/>
+
+  <xs:element name="getSupportedCreditCardsResponse" type="tns:getSupportedCreditCardsResponse"/>
+
+  <xs:element name="pay" type="tns:pay"/>
+
+  <xs:element name="payResponse" type="tns:payResponse"/>
+
+  <xs:complexType name="getRegisteredOrganizations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getRegisteredOrganizationsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:organization"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSupportedCreditCards">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getSupportedCreditCardsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg3" type="xs:double"/>
+      <xs:element name="arg4" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="payResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getSupportedCreditCardsResponse">
+    <wsdl:part name="parameters" element="tns:getSupportedCreditCardsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSupportedCreditCards">
+    <wsdl:part name="parameters" element="tns:getSupportedCreditCards">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pay">
+    <wsdl:part name="parameters" element="tns:pay">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRegisteredOrganizations">
+    <wsdl:part name="parameters" element="tns:getRegisteredOrganizations">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRegisteredOrganizationsResponse">
+    <wsdl:part name="parameters" element="tns:getRegisteredOrganizationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="payResponse">
+    <wsdl:part name="parameters" element="tns:payResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaymentService">
+    <wsdl:operation name="getRegisteredOrganizations">
+      <wsdl:input name="getRegisteredOrganizations" message="tns:getRegisteredOrganizations">
+    </wsdl:input>
+      <wsdl:output name="getRegisteredOrganizationsResponse" message="tns:getRegisteredOrganizationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSupportedCreditCards">
+      <wsdl:input name="getSupportedCreditCards" message="tns:getSupportedCreditCards">
+    </wsdl:input>
+      <wsdl:output name="getSupportedCreditCardsResponse" message="tns:getSupportedCreditCardsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pay">
+      <wsdl:input name="pay" message="tns:pay">
+    </wsdl:input>
+      <wsdl:output name="payResponse" message="tns:payResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentServiceImplServiceSoapBinding" type="tns:PaymentService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRegisteredOrganizations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRegisteredOrganizations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRegisteredOrganizationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSupportedCreditCards">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSupportedCreditCards">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSupportedCreditCardsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pay">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pay">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="payResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentServiceImplService">
+    <wsdl:port name="PaymentServiceImplPort" binding="tns:PaymentServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/Exercise_4.2/services/PaymentServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
