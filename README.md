@@ -9,6 +9,6 @@ Implementatio (bottom-up approach*) of a Web service for on-line payment. The se
 The Java interface is the following:
 - List<String> getSupportedCreditCards();
 - List<Organization> getRegisteredOrganizations();
-- void pay(String cctype, String ccnumber, String code, Double amount, int destination);
+- void pay(String cctype, String ccnumber, String code, Double amount, int destination).
   
 \* Bottom-up approach (the WSDL description is created starting from the Java interface).
